@@ -174,4 +174,3 @@ def get_db() -> DatabaseManager:
 
 # Alias pour compatibilité
 db = get_db()
-DatabaseManager = DatabaseManager

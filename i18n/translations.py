@@ -150,6 +150,3 @@ def t(key: str, lang: str = None, **kwargs) -> str:
 def get_text(key: str, lang: str = None, **kwargs) -> str:
     """Alias standard pour récupérer les traductions"""
     return translator.get(key, lang, **kwargs)
-
-# Alias pour l'import dans user_administrator.py
-TranslationManager = TranslationManager
