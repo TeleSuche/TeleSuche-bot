@@ -7,7 +7,7 @@ import logging
 import random
 import string
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo, ReplyKeyboardMarkup
 from telegram.ext import (
     Application,
@@ -20,7 +20,6 @@ from telegram.ext import (
 from typing import Dict, Optional, Callable
 
 from utils.memory_full import db, UserStates
-from utils.translations import get_text as t
 from extensions.extension import register_bot_fils_extensions
 from interface.interface import setup_admin_interfaces
 from handlers.groups_handlers import setup_groups_handlers  # MODIFICATION IMPORTANTE

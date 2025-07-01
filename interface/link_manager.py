@@ -1,7 +1,7 @@
 import logging
 logger = logging.getLogger(__name__)
 from datetime import datetime
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update
 from telegram.ext import CallbackContext, CallbackQueryHandler
 from uuid import uuid4
 from typing import Dict, Any

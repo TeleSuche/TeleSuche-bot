@@ -1,7 +1,6 @@
 from telegram import LabeledPrice
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler
-from utils.memory_full import db
 
 def register_monetization(dispatcher):
     def show_credit_packs(update: Update, context: CallbackContext):

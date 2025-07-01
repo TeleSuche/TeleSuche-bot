@@ -4,7 +4,6 @@ Gestionnaire du système de parrainage
 
 import logging
 import hashlib
-from datetime import datetime, timedelta
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 

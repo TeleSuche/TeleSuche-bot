@@ -1,7 +1,5 @@
 from telegram import (
     Update,
-    InlineKeyboardMarkup,
-    InlineKeyboardButton,
     ReplyKeyboardMarkup,
     KeyboardButton
 )

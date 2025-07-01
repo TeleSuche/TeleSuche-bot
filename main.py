@@ -23,8 +23,7 @@ if sys.version_info >= (3, 12):
         pkgutil.ImpImporter = ImpImporter
 
 from telegram import BotCommand
-from telegram.ext import Application, CommandHandler, MessageHandler, filters
-from utils.memory_full import db
+from telegram.ext import Application
 from utils.user_administrator import init_and_start_all_admin_bots_polling
 from handlers import bot_linking, commands, language, terms_accept, monetization, pdg_dashboard
 from handlers.pdg_alerts import schedule_pdg_alerts

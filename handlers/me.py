@@ -3,7 +3,6 @@
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler, Application
 from utils.memory_full import db
-from datetime import datetime
 
 async def handle_me(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_chat.type != "private":

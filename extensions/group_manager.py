@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import CommandHandler
 from telegram import Update
 from telegram.ext.callbackcontext import CallbackContext
 import subprocess
