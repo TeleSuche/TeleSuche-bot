@@ -5,7 +5,7 @@ Gestionnaire des fonctions de modération
 
 import logging
 import re
-from datetime import datetime, timedelta
+from datetime import timedelta
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ChatMember
 from telegram.ext import ContextTypes
 from telegram.error import BadRequest, Forbidden

@@ -6,8 +6,6 @@ logger = logging.getLogger(__name__)
 Gestion de liaison de bots enfants et bot PDG.
 Inclut : validation, création, quotas d’abonnement, log, suppression en 4 étapes.
 """
-
-import logging
 import threading
 from datetime import datetime
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton

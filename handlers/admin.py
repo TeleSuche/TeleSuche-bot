@@ -6,8 +6,6 @@ Gestionnaire des fonctions administrateur
 """
 
 import json
-import logging
-from datetime import datetime
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 

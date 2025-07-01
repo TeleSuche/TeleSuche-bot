@@ -4,7 +4,6 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CommandHandler, CallbackQueryHandler, CallbackContext
 from typing import Dict, Any
 from utils.memory_full import db
-import logging
 
 logger = logging.getLogger(__name__)
 

@@ -3,8 +3,6 @@ logger = logging.getLogger(__name__)
 """
 Gestionnaire de la boutique et des achats
 """
-
-import logging
 import json
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes

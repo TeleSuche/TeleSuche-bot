@@ -2,7 +2,6 @@ import logging
 logger = logging.getLogger(__name__)
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CallbackContext, CallbackQueryHandler
-import logging
 
 logger = logging.getLogger(__name__)
 

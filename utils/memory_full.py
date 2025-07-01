@@ -1,6 +1,6 @@
 from datetime import datetime
 import logging
-from datetime import datetime, timedelta
+from datetime import timedelta
 from enum import Enum
 import random
 import string

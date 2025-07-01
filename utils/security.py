@@ -1,8 +1,5 @@
 import logging
 logger = logging.getLogger(__name__)
-# security.py - Gestionnaire complet de sécurité
-
-import logging
 import hashlib
 import secrets
 import re

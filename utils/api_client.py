@@ -1,6 +1,5 @@
 import logging
 logger = logging.getLogger(__name__)
-import logging
 from telegram import Bot
 from telegram.error import TelegramError
 
