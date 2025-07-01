@@ -1,4 +1,3 @@
-from telegram.ext import Updater  # PTB (Python Telegram Bot)
 import subprocess
 import time
 import os

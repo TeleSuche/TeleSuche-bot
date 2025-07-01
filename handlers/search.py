@@ -6,10 +6,9 @@ Gestionnaire des fonctions de recherche et d'indexation
 
 import logging
 import os
-import json
 import hashlib
 from datetime import datetime
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Document
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 
 class SearchHandler:

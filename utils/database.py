@@ -3,9 +3,7 @@ logger = logging.getLogger(__name__)
 # database.py - Gestionnaire de base de données JSON corrigé
 
 import json
-import os
 from pathlib import Path
-from datetime import datetime
 from typing import Dict, Any, Optional, List
 from config import Config
 import logging

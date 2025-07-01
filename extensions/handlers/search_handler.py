@@ -5,7 +5,6 @@ from telegram.ext import MessageHandler, filters, CallbackQueryHandler, Callback
 import logging
 from utils.memory_full import db
 from extensions.handlers.search_engine import SearchEngine
-import re
 
 logger = logging.getLogger(__name__)
 

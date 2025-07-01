@@ -8,7 +8,6 @@ from telegram.ext import (
     filters,
     ConversationHandler
 )
-from utils.memory_full import db
 from interface.link_preview import ProductPreview
 from typing import Dict
 

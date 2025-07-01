@@ -4,7 +4,7 @@ from datetime import datetime
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 from typing import Optional, Dict
-from datetime import datetime, timedelta
+from datetime import datetime
 import logging
 import asyncio
 

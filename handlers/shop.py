@@ -6,7 +6,6 @@ Gestionnaire de la boutique et des achats
 
 import logging
 import json
-from datetime import datetime
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 

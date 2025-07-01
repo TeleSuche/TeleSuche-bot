@@ -1,4 +1,3 @@
-from telegram.ext import Updater
 import subprocess
 import time
 import os
