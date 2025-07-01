@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 from config import Config
-import logging
 
 logger = logging.getLogger(__name__)
 
