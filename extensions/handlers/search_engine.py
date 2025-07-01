@@ -2,7 +2,6 @@ import logging
 logger = logging.getLogger(__name__)
 from telegram import Update
 from telegram.ext import CommandHandler, MessageHandler, filters, CallbackContext
-import logging
 from utils.memory_full import db
 from utils.search_ui import format_search_results, create_results_markup
 

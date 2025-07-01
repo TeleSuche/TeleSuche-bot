@@ -5,7 +5,6 @@ from telegram.ext import CallbackContext
 from typing import Dict, Optional, Union
 from dataclasses import dataclass
 from utils.memory_full import db
-import logging
 
 logger = logging.getLogger(__name__)
 

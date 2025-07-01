@@ -1,7 +1,5 @@
 import logging
 logger = logging.getLogger(__name__)
-# pdg_bot.py
-import logging
 import threading
 from telegram.ext import Application
 from utils.memory_full import db

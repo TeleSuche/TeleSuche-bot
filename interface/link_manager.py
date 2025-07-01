@@ -5,7 +5,6 @@ from telegram import Update
 from telegram.ext import CallbackContext, CallbackQueryHandler
 from uuid import uuid4
 from typing import Dict, Any
-import logging
 
 logger = logging.getLogger(__name__)
 

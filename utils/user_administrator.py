@@ -1,13 +1,9 @@
 import logging
 logger = logging.getLogger(__name__)
 from datetime import datetime
-# user_administrator.py
-
-import logging
 import random
 import string
 import os
-from datetime import datetime
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo, ReplyKeyboardMarkup
 from telegram.ext import (
     Application,

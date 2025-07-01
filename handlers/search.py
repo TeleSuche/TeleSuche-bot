@@ -3,8 +3,6 @@ logger = logging.getLogger(__name__)
 """
 Gestionnaire des fonctions de recherche et d'indexation
 """
-
-import logging
 import os
 import hashlib
 from datetime import datetime

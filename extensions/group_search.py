@@ -3,7 +3,6 @@ logger = logging.getLogger(__name__)
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler
 from utils.memory_full import db
-import logging
 
 logger = logging.getLogger(__name__)
 

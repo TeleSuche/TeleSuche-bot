@@ -5,7 +5,6 @@ logger = logging.getLogger(__name__)
 
 import sys
 import pkgutil
-import logging
 from pathlib import Path
 
 # CORRECTION CRITIQUE - Ajout du chemin racine en PREMIER
