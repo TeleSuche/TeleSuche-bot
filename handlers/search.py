@@ -269,7 +269,8 @@ class SearchHandler:
         
         return self.db.create_indexed_document(doc_data)
     
-    def extract_keywords(self, text):
+    @staticmethod
+    def extract_keywords(text):
         """Extrait les mots-clés d'un texte"""
         # Liste de mots vides en français et anglais
         stop_words = {
@@ -319,7 +320,8 @@ class SearchHandler:
         
         return [result for score, result in scored_results[:20]]  # Top 20 résultats
     
-    def parse_search_query(self, query):
+    @staticmethod
+    def parse_search_query(query):
         """Analyse une requête de recherche"""
         terms = {
             'words': [],
@@ -356,7 +358,8 @@ class SearchHandler:
         
         return terms
     
-    def calculate_relevance_score(self, document, search_terms):
+    @staticmethod
+    def calculate_relevance_score(document, search_terms):
         """Calcule un score de pertinence pour un document"""
         score = 0
         content = document.get('content', '').lower()
@@ -431,7 +434,8 @@ class SearchHandler:
         else:
             await update.message.reply_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    def create_excerpt(self, content, query, max_length=100):
+    @staticmethod
+    def create_excerpt(content, query, max_length=100):
         """Crée un extrait de texte autour des termes de recherche"""
         if not content:
             return "Aucun contenu disponible"
@@ -535,7 +539,8 @@ class SearchHandler:
         
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    def format_popular_searches(self, searches):
+    @staticmethod
+    def format_popular_searches(searches):
         """Formate les recherches populaires"""
         if not searches:
             return "Aucune recherche récente"

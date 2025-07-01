@@ -19,7 +19,8 @@ class TeleSucheDB:
         self.cache = {}
         logger.info(f"Base de données initialisée à: {self.path}")
     
-    def resolve_path(self, path):
+    @staticmethod
+    def resolve_path(path):
         """Résolution robuste du chemin de stockage"""
         try:
             path = Path(path)

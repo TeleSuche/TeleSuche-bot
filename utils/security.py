@@ -50,7 +50,8 @@ class SecurityManager:
             logger.error(f"Erreur de sécurité: {e}")
             return False
 
-    async def _basic_permission_check(self, update, context) -> bool:
+    @staticmethod
+    async def _basic_permission_check(update, context) -> bool:
         """Vérifie les permissions basiques"""
         user_id = update.effective_user.id
         chat_type = update.effective_chat.type
@@ -71,7 +72,8 @@ class SecurityManager:
             
         return False
 
-    def _contains_malicious_content(self, text: Optional[str]) -> bool:
+    @staticmethod
+    def _contains_malicious_content(text: Optional[str]) -> bool:
         """Détecte les contenus potentiellement malveillants"""
         if not text:
             return False
@@ -136,16 +138,19 @@ class SecurityManager:
             del self.locked_accounts[user_id]
         return False
 
-    def generate_token(self, length: int = 32) -> str:
+    @staticmethod
+    def generate_token(length: int = 32) -> str:
         """Génère un token sécurisé pour les authentifications"""
         return secrets.token_urlsafe(length)
 
-    def hash_password(self, password: str) -> str:
+    @staticmethod
+    def hash_password(password: str) -> str:
         """Hash un mot de passe avec sel (SHA-256)"""
         salt = secrets.token_hex(8)
         return f"{salt}${hashlib.sha256((salt + password).encode()).hexdigest()}"
 
-    def verify_password(self, password: str, hashed: str) -> bool:
+    @staticmethod
+    def verify_password(password: str, hashed: str) -> bool:
         """Vérifie un mot de passe contre son hash"""
         try:
             salt, stored_hash = hashed.split('$')
@@ -154,11 +159,13 @@ class SecurityManager:
         except:
             return False
 
-    def check_admin(self, user_id: int) -> bool:
+    @staticmethod
+    def check_admin(user_id: int) -> bool:
         """Vérifie si un utilisateur est administrateur"""
         return user_id in Config.ADMIN_IDS
 
-    def sanitize_input(self, input_str: str) -> str:
+    @staticmethod
+    def sanitize_input(input_str: str) -> str:
         """Nettoie les entrées utilisateur pour prévenir les injections"""
         return re.sub(r"[;\\\"\']", "", input_str)[:255]
 

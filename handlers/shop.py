@@ -25,7 +25,8 @@ class ShopHandler:
             self.payment_manager = None
             self.PaymentMethod = None
     
-    def load_payment_config(self):
+    @staticmethod
+    def load_payment_config():
         """Charge la configuration des paiements"""
         try:
             with open('config.json', 'r', encoding='utf-8') as f:
@@ -199,7 +200,8 @@ class ShopHandler:
             amount = float(data.split("_")[2])
             await self.process_payment(query, method, amount)
     
-    async def show_credit_packages(self, query):
+    @staticmethod
+    async def show_credit_packages(query):
         """Affiche les packages de crédits"""
         text = """💎 **Packages de Crédits**
 
@@ -231,7 +233,8 @@ Sélectionnez un package:"""
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    async def buy_credit_package(self, query, package_id):
+    @staticmethod
+    async def buy_credit_package(query, package_id):
         """Achète un package de crédits"""
         packages = {
             'small': {'credits': 100, 'price': 1.99, 'bonus': 0},
@@ -315,7 +318,8 @@ Choisissez votre méthode de paiement:"""
             self.logger.error(f"Erreur lors du traitement du paiement: {e}")
             await query.edit_message_text("❌ Erreur lors du traitement du paiement.")
     
-    async def show_stripe_instructions(self, query, payment_intent):
+    @staticmethod
+    async def show_stripe_instructions(query, payment_intent):
         """Affiche les instructions pour Stripe"""
         text = f"""💳 **Paiement Stripe (Simulation)**
 
@@ -344,7 +348,8 @@ Vos crédits ont été ajoutés automatiquement."""
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    async def show_crypto_instructions(self, query, payment_intent):
+    @staticmethod
+    async def show_crypto_instructions(query, payment_intent):
         """Affiche les instructions pour crypto"""
         crypto_info = payment_intent
         
@@ -382,7 +387,8 @@ Montant: {crypto_info['amount']}€
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    async def show_telegram_instructions(self, query, payment_intent):
+    @staticmethod
+    async def show_telegram_instructions(query, payment_intent):
         """Affiche les instructions pour Telegram Payments"""
         text = f"""📱 **Telegram Payments (Simulation)**
 
@@ -408,7 +414,8 @@ Vos crédits ont été ajoutés à votre compte."""
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    async def show_credits_result(self, query, payment_intent):
+    @staticmethod
+    async def show_credits_result(query, payment_intent):
         """Affiche le résultat du paiement par crédits"""
         if payment_intent['status'] == 'completed':
             text = f"""✅ **Paiement par crédits réussi!**
@@ -504,7 +511,8 @@ Vos crédits ont été ajoutés à votre compte."""
         
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    async def show_promo_codes(self, query):
+    @staticmethod
+    async def show_promo_codes(query):
         """Affiche la section codes promo"""
         text = """🎁 **Codes Promo**
 
@@ -528,7 +536,8 @@ Codes valides (exemples de simulation):
         
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    def load_products(self):
+    @staticmethod
+    def load_products():
         """Charge les produits depuis la configuration"""
         try:
             with open('config.json', 'r', encoding='utf-8') as f:

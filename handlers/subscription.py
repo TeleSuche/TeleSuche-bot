@@ -34,10 +34,12 @@ class SubscriptionHandler:
     def __init__(self):
         pass
 
-    def get_user_plan(self, user_id: int) -> str:
+    @staticmethod
+    def get_user_plan(user_id: int) -> str:
         return db.get("user_plans", {}).get(user_id, "sub_basic")
 
-    def get_plan_limits(self, plan: str) -> dict:
+    @staticmethod
+    def get_plan_limits(plan: str) -> dict:
         return PLANS.get(plan, {}).get("limits", {"bots": 1, "groups": 2, "channels": 1})
 
     async def show_user_plan(self, update: Update, context: CallbackContext):
