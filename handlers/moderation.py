@@ -307,7 +307,8 @@ class ModerationHandler:
             user_id = int(data.split("_")[2])
             await self.handle_warn_callback(query, user_id)
     
-    async def check_admin_permissions(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+    @staticmethod
+    async def check_admin_permissions(update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Vérifie les permissions d'administrateur"""
         user_id = update.effective_user.id
         chat_id = update.effective_chat.id

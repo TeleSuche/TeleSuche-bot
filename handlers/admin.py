@@ -17,7 +17,8 @@ class AdminHandler:
         self.translations = translations
         self.logger = logging.getLogger(__name__)
     
-    def is_admin(self, user_id):
+    @staticmethod
+    def is_admin(user_id):
         """Vérifie si l'utilisateur est administrateur"""
         try:
             with open('config.json', 'r') as f:
@@ -177,7 +178,8 @@ Sélectionnez le module à configurer:"""
         elif data == "admin_maintenance":
             await self.show_maintenance_menu(query)
     
-    async def show_general_config(self, query):
+    @staticmethod
+    async def show_general_config(query):
         """Affiche la configuration générale"""
         with open('config.json', 'r') as f:
             config = json.load(f)
@@ -204,7 +206,8 @@ Sélectionnez le module à configurer:"""
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    async def show_moderation_config(self, query):
+    @staticmethod
+    async def show_moderation_config(query):
         """Affiche la configuration de modération"""
         with open('config.json', 'r') as f:
             config = json.load(f)
@@ -268,7 +271,8 @@ Sélectionnez le module à configurer:"""
                 'last_backup': 'Jamais'
             }
     
-    def get_detailed_stats(self):
+    @staticmethod
+    def get_detailed_stats():
         """Récupère les statistiques détaillées"""
         # Simulation des statistiques détaillées
         return {
@@ -310,24 +314,28 @@ Sélectionnez le module à configurer:"""
             self.logger.error(f"Erreur lecture logs: {e}")
             return []
     
-    def format_top_commands(self, commands):
+    @staticmethod
+    def format_top_commands(commands):
         """Formate les top commandes"""
         result = ""
         for i, cmd in enumerate(commands[:5], 1):
             result += f"{i}. {cmd['command']}: {cmd['count']} utilisations\n"
         return result
     
-    def get_uptime(self):
+    @staticmethod
+    def get_uptime():
         """Calcule l'uptime du bot"""
         # Simulation de l'uptime
         return "2h 34m"
     
-    def get_last_backup(self):
+    @staticmethod
+    def get_last_backup():
         """Récupère la date de la dernière sauvegarde"""
         # Simulation
         return "Il y a 4 heures"
     
-    async def export_data(self, query):
+    @staticmethod
+    async def export_data(query):
         """Exporte les données"""
         await query.edit_message_text(
             "📤 **Export des données**\n\n" +
@@ -335,7 +343,8 @@ Sélectionnez le module à configurer:"""
             parse_mode='Markdown'
         )
     
-    async def show_maintenance_menu(self, query):
+    @staticmethod
+    async def show_maintenance_menu(query):
         """Affiche le menu de maintenance"""
         text = """🔧 **Menu Maintenance**
 

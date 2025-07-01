@@ -121,7 +121,8 @@ Félicitations! Vous avez été parrainé et recevez **{referral_result['bonus_n
             parse_mode='Markdown'
         )
     
-    async def help_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+    @staticmethod
+    async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Commande /help - Aide et documentation"""
         text = """❓ **Aide TeleSuche**
 
@@ -437,7 +438,8 @@ Félicitations! Vous avez été parrainé et recevez **{referral_result['bonus_n
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    async def show_help_menu(self, query):
+    @staticmethod
+    async def show_help_menu(query):
         """Affiche le menu d'aide"""
         text = """❓ **Centre d'Aide TeleSuche**
 
@@ -506,7 +508,8 @@ Félicitations! Vous avez été parrainé et recevez **{referral_result['bonus_n
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    def format_achievements(self, achievements):
+    @staticmethod
+    def format_achievements(achievements):
         """Formate la liste des accomplissements"""
         if not achievements:
             return "Aucun accomplissement pour le moment"
@@ -548,7 +551,8 @@ Félicitations! Vous avez été parrainé et recevez **{referral_result['bonus_n
             referral_handler = ReferralHandler(self.db, self.translations)
             await referral_handler.share_referral_link(query)
     
-    async def show_language_selection(self, query):
+    @staticmethod
+    async def show_language_selection(query):
         """Affiche la sélection de langue"""
         text = "🌐 **Choisissez votre langue:**"
         

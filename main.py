@@ -17,7 +17,8 @@ if sys.version_info >= (3, 12):
         pkgutil.ImpImporter
     except AttributeError:
         class ImpImporter:
-            def find_module(self, fullname, path=None):
+            @staticmethod
+            def find_module(fullname, path=None):
                 return None
         pkgutil.ImpImporter = ImpImporter
 

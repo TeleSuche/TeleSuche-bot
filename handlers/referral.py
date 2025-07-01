@@ -337,7 +337,8 @@ Complétez ces défis pour gagner des bonus supplémentaires!
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    async def explain_referral_system(self, query):
+    @staticmethod
+    async def explain_referral_system(query):
         """Explique le fonctionnement du système de parrainage"""
         text = """💡 **Comment fonctionne le parrainage?**
 
@@ -379,13 +380,15 @@ Chaque utilisateur a un lien de parrainage personnel qui suit les inscriptions.
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
     
-    def generate_referral_link(self, user_id):
+    @staticmethod
+    def generate_referral_link(user_id):
         """Génère un lien de parrainage unique"""
         # Créer un code unique basé sur l'ID utilisateur
         referral_code = hashlib.md5(f"telesuche_{user_id}".encode()).hexdigest()[:8]
         return f"https://t.me/telesuchebot?start=ref_{referral_code}"
     
-    def get_tier_benefits(self, tier_level):
+    @staticmethod
+    def get_tier_benefits(tier_level):
         """Retourne les avantages du niveau de parrainage"""
         benefits = {
             0: "• Commissions de base (10%)",
@@ -396,7 +399,8 @@ Chaque utilisateur a un lien de parrainage personnel qui suit les inscriptions.
         }
         return benefits.get(tier_level, benefits[0])
     
-    def get_level_emoji(self, level):
+    @staticmethod
+    def get_level_emoji(level):
         """Retourne l'emoji correspondant au niveau"""
         emojis = {
             0: "🆕",
@@ -407,13 +411,15 @@ Chaque utilisateur a un lien de parrainage personnel qui suit les inscriptions.
         }
         return emojis.get(level, "🆕")
     
-    def create_progress_bar(self, percentage):
+    @staticmethod
+    def create_progress_bar(percentage):
         """Crée une barre de progression"""
         filled = int(percentage / 10)
         empty = 10 - filled
         return "▓" * filled + "░" * empty
     
-    async def copy_referral_link(self, query):
+    @staticmethod
+    async def copy_referral_link(query):
         """Simule la copie du lien de parrainage"""
         await query.answer("Lien copié! (simulation - utilisez la fonction de partage)", show_alert=True)
     
