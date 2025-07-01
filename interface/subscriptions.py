@@ -102,7 +102,7 @@ def setup_subscription_handlers(application):
     )
 
     # Handlers pour chaque plan
-    for plan_key in SubscriptionManager.PLANS.keys():
+    for plan_key in SubscriptionManager.PLANS:
         application.add_handler(
             CallbackQueryHandler(
                 lambda update, context, pk=plan_key: SubscriptionManager.show_plan_detail(update, context, pk),
