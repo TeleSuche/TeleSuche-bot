@@ -1,7 +1,7 @@
 from telegram.ext import ContextTypes, Application
 from datetime import datetime
 from utils.memory_full import db
-from . import config  # import send_configured
+from .setup_config import send_configured  # Import corrigé
 import asyncio
 
 # Format attendu :
@@ -20,20 +20,13 @@ async def scheduler_loop(context: ContextTypes.DEFAULT_TYPE):
             chat_id = entry["chat_id"]
             delay = entry["delay"]
             key = f"last:{bot_id}:{chat_id}:{entry.get('config_key', '')}"
-            last = db.get(key, datetime.min)
+            # Utilisation d'une date de référence plus logique
+            last = db.get(key, datetime(1970, 1, 1))
 
             if (now - last).total_seconds() >= delay:
-                await config.send_configured(context, chat_id, bot_id, entry["config_key"])
+                await send_configured(context, chat_id, bot_id, entry["config_key"])  # Appel direct
                 db[key] = now
 
 # --- SETUP ---
 def setup(application: Application):
     application.job_queue.run_repeating(scheduler_loop, interval=60)
---------
-Son entrée db créé via /config ( db["recurrent_timers"]["BOT_ID"] = [
-    {
-        "chat_id": -100123456789,
-        "config_key": "recurrent_rappel",
-        "delay": 3600  # toutes les heures
-    }
-]  )
