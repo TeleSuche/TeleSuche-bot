@@ -1,0 +1,4 @@
+  File "./utils/config.py", line 3
+    from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto from telegram.ext import ContextTypes, CommandHandler, CallbackQueryHandler, MessageHandler, filters, Application from utils.memory_full import db
+                                                                                             ^^^^
+SyntaxError: invalid syntax
