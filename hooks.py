@@ -1,4 +1,7 @@
+# telegram_gemini_5/extensions/handlers/tracking.py
+
 from datetime import datetime
+
 from telegram import Update
 from telegram.ext import (
     Application,
@@ -8,7 +11,7 @@ from telegram.ext import (
 )
 
 from utils.memory_full import db
-from .setup_config import send_configured  # Import corrigé
+from . import config  # send_configured
 
 
 # Chargement des données persistantes
@@ -26,7 +29,7 @@ async def on_new_member(
     """
     chat_id = update.effective_chat.id
     bot_id = str(context.bot.id)
-    await send_configured(context, chat_id, bot_id, "welcome")  # Appel direct
+    await config.send_configured(context, chat_id, bot_id, "welcome")
 
 
 async def on_message(
@@ -34,7 +37,7 @@ async def on_message(
     context: ContextTypes.DEFAULT_TYPE
 ) -> None:
     """
-    Suit l'historique des messages et supprime ceux contenant
+    Suit l’historique des messages et supprime ceux contenant
     des mots interdits.
     """
     chat_id = update.effective_chat.id
@@ -49,9 +52,7 @@ async def on_message(
 
     # Détection de mots interdits
     text = update.message.text or ""
-    # Charger les mots interdits à jour depuis la base de données
-    current_forbidden_words = db.get("forbidden_words", {})
-    fw_list = current_forbidden_words.get(chat_id, [])
+    fw_list = forbidden_words.get(chat_id, [])
     if any(word.lower() in text.lower() for word in fw_list):
         await update.message.delete()
         await update.message.reply_text("⛔️ Mot interdit détecté.")
